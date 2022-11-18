@@ -12,12 +12,11 @@ async function main() {
 		const formatStr = core.getInput('format');// default: ''
 		console.log('time zone: ', timezone)
 		console.log('time format: ', formatStr)
-
 		const str = dayjs().utcOffset(timezone).format(formatStr)
 		console.log("time formatStr: ", str)
 
 		core.setOutput("time", str);
-		
+
 	} catch (error) {
 		core.setFailed(error.message);
 	}
