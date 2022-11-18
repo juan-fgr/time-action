@@ -18,7 +18,7 @@ jobs:
 
       - name: test1
         id: time1
-        uses: juan-fgr/time-action@v1.1
+        uses: juan-fgr/time-action@v1
 
       - name: test1-output
         env:
@@ -27,7 +27,7 @@ jobs:
           echo $TIME
       - name: test2
         id: time2
-        uses: juan-fgr/time-action@v1.1
+        uses: juan-fgr/time-action@v1
         with:
           timeZone: 8
           format: 'YYYY-MM-DD_HH:mm:ss'
