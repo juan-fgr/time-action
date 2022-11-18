@@ -1,0 +1,21 @@
+
+name: 'Get Timestamp Action'
+description: 'Get the time in the specified time zone'
+branding:
+  icon: arrow-right-circle
+  color: gray-dark
+inputs:
+  timeZone:
+    description: 'time zone'
+    required: false
+    default: 0
+  format:
+    description: 'timestamp format'
+    required: false
+    default: ''
+outputs:
+  time:
+    description: 'current time'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
