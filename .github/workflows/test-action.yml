@@ -4,13 +4,8 @@ on:
     branches:
       - master
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [10]
+  check-time-logic:
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Git Source
@@ -19,6 +14,7 @@ jobs:
       - name: test1
         id: time1
         uses: juan-fgr/time-action@v1.0
+
 
       - name: test1-output
         env:
@@ -37,3 +33,22 @@ jobs:
           TIME: "${{ steps.time2.outputs.time }}"
         run: |
           echo $TIME
+          
+  check-string-changes-logic:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Git Source
+        uses: actions/checkout@v3
+
+      - name: test1
+        id: cadena
+        uses: juan-fgr/time-action@v1.0
+        with:
+          string: "A SIMPLE TEST TO lowercase"
+
+      - name: test1-output
+        env:
+          CADENA: "${{ steps.cadena.outputs.lowercase }}"
+        run: |
+          echo $CADENA  
